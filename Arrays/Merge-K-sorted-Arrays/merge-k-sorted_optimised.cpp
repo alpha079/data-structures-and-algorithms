@@ -14,6 +14,8 @@ vector<int> MergeKSortedArray(vector<vector<int>> ar)
 
 	for(int i=0;i<n;i++)
 	{
+		
+		//Element, row, col
 		pq.push({ar[i][0],{i,0}});   //Inseretd All the first row element in the queue
 
 	}
