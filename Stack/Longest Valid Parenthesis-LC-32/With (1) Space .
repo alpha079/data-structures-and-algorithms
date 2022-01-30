@@ -1,0 +1,48 @@
+class Solution {
+public:
+    int longestValidParentheses(string s) {
+        int left=0, right=0, ans=0;
+        
+        for(int i=0;i<s.size();i++)
+        {
+            if(s[i]=='(')
+                left++;
+            else right++;
+            
+            if(left==right)
+            {
+                ans=max(ans,2*left);
+            }
+            else if(right>left)
+            {
+                left=right=0;
+            }
+            //Now of the test case is"(()"
+            //The above code gives ans 0, but ans is 2
+            //So , again run the same code from ending to start
+        }
+        //cout<<left<<right<<ans;
+        left=0, right=0;
+        for(int i=s.size()-1;i>=0;i--)
+        {
+            if(s[i]=='(')
+                left++;
+            else right++;
+            
+            if(left==right)
+            {
+                ans=max(ans,2*left);
+            }
+            else if(left>right)
+            {
+                left=right=0;
+            }
+            
+        }
+        cout<<left<<right<<ans;
+        
+        
+        return ans;
+        
+    }
+};
